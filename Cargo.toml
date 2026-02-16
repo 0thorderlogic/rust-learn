@@ -1,0 +1,9 @@
+[package]
+name = "cft"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+author = "Aryan Singh <aryan@a115.xyz>"
+
+[dependencies]
+colored = "2.1"
