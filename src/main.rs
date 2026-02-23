@@ -2,7 +2,10 @@ use colored::*;
 use std::io;
 use std::io::Write;
 
+// use crate::binary_search::binary_search;
+
 // internal modules are being imported
+mod binary_search;
 mod fib;
 mod palindrome;
 
@@ -65,5 +68,19 @@ fn main() {
 
     println!("{}", "===BINARY SEARCH===".bold().magenta());
 
-    let _res: bool = binary_search::binary_search();
+    // we are reusing the input variable so we must clear it before we do anything
+    input.clear();
+    
+    print!("{}", "What would you like to search: ".bold().blue());
+    io::stdout().flush().unwrap();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Somesome went wrong");
+
+    let _find: i32 = input.trim().parse().expect("Not a valid number");
+
+    match binary_search::binary_search(_find) {
+        Some(index) => println!("Found at index {}", index),
+        None => println!("Not found"),
+    }
 }
